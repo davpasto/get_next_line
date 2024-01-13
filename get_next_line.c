@@ -1,16 +1,36 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: davpasto <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 17:28:03 by davpasto          #+#    #+#             */
-/*   Updated: 2023/12/19 17:28:45 by davpasto         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-int	main(int argc, char *argv[])
+
+void	ft_read(int fd, char *tmp)
+{	
+	char	*buffer;
+	char	*aux;
+	int	bytes;
+
+	aux = tmp;
+	free(tmp);
+	while (condicion dificil)
+	       {
+	       		bytes = read(fd, &buffer, BUFFER_SIZE);
+			if (bytes == -1)
+				return (NULL);
+			//concatenar lo que estoy leyendo ak:BUFFER con "lo que llevaba" ak:temp
+			aux = ft_strjoin(aux, buffer, bytes);
+	       }
+	tmp = aux;
+}
+
+
+char *get_next_line(int fd)
 {
-	return (0);
+	char		*line;
+	char static	*tmp;
+	//manipulation
+	//ft_read devuelve string que contenga hasta la siguiente linea
+	ft_read(fd, &tmp);
+	//COPIa desde el principio hAT el finL SW LA LINEA EN LINE
+	line = get_line(tmp);
+	//ctuLIZA EL TEMP QUEDANDOSE CON LA SIGUIENTE LINEA, ya que es statici
+	proces_temp(&tmp);
+
+	return (line);
 }

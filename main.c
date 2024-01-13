@@ -1,17 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davpasto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 17:29:46 by davpasto          #+#    #+#             */
-/*   Updated: 2023/12/19 17:32:17 by davpasto         ###   ########.fr       */
+/*   Created: 2023/12/19 17:28:03 by davpasto          #+#    #+#             */
+/*   Updated: 2023/12/19 17:28:45 by davpasto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*get_next_line(int fd);
-void	ft_read(int fd, char &tmp);
-char 	*get_line(int fd);
-void	proces_temp(char &tmp);
-char	*ft_strjoin(char *aux, char *buffer, int bytes);
+int	main(int ac, char **av)
+{
+	int	fd;
+	char	*line;
+
+	fd = open(av[1], O_RDONLY);
+	while (line = get_next_line(fd))
+	{
+		printf("%s",line);
+		free(line);
+	}
+	line = get_next_line(fd);
+	printf("%s", (line));
+	free(line);
+	close(fd);
+	return (0);
+}
