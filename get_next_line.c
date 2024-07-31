@@ -1,36 +1,65 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: davpasto <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/31 22:43:53 by davpasto          #+#    #+#             */
+/*   Updated: 2024/08/01 00:23:08 by davpasto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+char	*get_next_line(int fd)
+{
+	static	char	*full_line;
+	char		*line;
 
-void	ft_read(int fd, char *tmp)
-{	
-	char	*buffer;
-	char	*aux;
-	int	bytes;
-
-	aux = tmp;
-	free(tmp);
-	while (condicion dificil)
-	       {
-	       		bytes = read(fd, &buffer, BUFFER_SIZE);
-			if (bytes == -1)
-				return (NULL);
-			//concatenar lo que estoy leyendo ak:BUFFER con "lo que llevaba" ak:temp
-			aux = ft_strjoin(aux, buffer, bytes);
-	       }
-	tmp = aux;
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	full_line = read_and_write(fd, full_line);
+	if(!full_line)
+		return (NULL);
+	line = ft_extract_line(full_line);
+	full_line = ft_get_rest(full_line);
+	return(line);
 }
 
+char	*read_and_write(int fd, char full_line)
+{	
+	char	*buffer;
+	size_t	count;
 
-char *get_next_line(int fd)
+	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char))
+	count = read(fd, buffer, BUFFER_SIZE)
+
+	while (count || count = NULL)
+	{
+		if (count == 0)
+			return(NULL);
+		if(count == -1)
+		{
+			print("error");
+			free(buffer);
+			return(NULL);
+		}
+
+	}
+}
+
+int	main(void)
 {
-	char		*line;
-	char static	*tmp;
-	//manipulation
-	//ft_read devuelve string que contenga hasta la siguiente linea
-	ft_read(fd, &tmp);
-	//COPIa desde el principio hAT el finL SW LA LINEA EN LINE
-	line = get_line(tmp);
-	//ctuLIZA EL TEMP QUEDANDOSE CON LA SIGUIENTE LINEA, ya que es statici
-	proces_temp(&tmp);
+	#include <fcntl.h>
 
-	return (line);
+	int	fd;
+	char	*line;
+
+	fd = open("text.txt", O_RDONLY);
+	while (line = get_next_line(fd))
+	{
+		printf("%s\n",line);
+		free(line);
+	}
+	close(fd);
+	return (0);
 }
