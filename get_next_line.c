@@ -34,7 +34,7 @@ char	*read_and_write(int fd, char *full_line)
 	read_status = 1;
 	if (!buffer)
 		return (NULL);
-	while (!ft_strchr(buffer, '\n') && read_status != 0)
+	while (!ft_strchr(full_line, '\n') && read_status != 0)
 	{
 		read_status = read(fd, buffer, BUFFER_SIZE);
 		if (read_status == -1)
