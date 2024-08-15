@@ -25,27 +25,26 @@ char	*get_next_line(int fd)
 	return(line);
 }
 
-char	*read_and_write(int fd, char full_line)
+char	*read_and_write(int fd, char *full_line)
 {	
 	char	*buffer;
-	size_t	count;
+	int	read_status;
 
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char))
-	count = read(fd, buffer, BUFFER_SIZE)
-
-	while (count || count = NULL)
+	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	read_status = 1;
+	if (!buffer)
+		return (NULL);
+	while (!ft_strchr(buffer, '\n') && read_status != 0)
 	{
-		if (count == 0)
-			return(NULL);
-		if(count == -1)
-		{
-			print("error");
-			free(buffer);
-			return(NULL);
-		}
-
+		read_status = read(fd, buffer, BUFFER_SIZE);
+		if (read_status == -1)
+			return (free(buffer), NULL);
+		buffer[read_status] = 0;
+		full_line = ft_strjoin(full_line, buffer);
+		if (!full_line)
+			return (free(buffer), NULL);
 	}
-}
+	return (free(buffer), full_line);
 
 int	main(void)
 {
