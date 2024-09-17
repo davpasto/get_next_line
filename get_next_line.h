@@ -6,7 +6,7 @@
 /*   By: davpasto <davpasto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 04:15:04 by davpasto          #+#    #+#             */
-/*   Updated: 2024/09/17 04:15:58 by davpasto         ###   ########.fr       */
+/*   Updated: 2024/09/17 19:10:35 by davpasto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stddef.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);

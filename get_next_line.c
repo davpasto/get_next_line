@@ -6,7 +6,7 @@
 /*   By: davpasto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 22:43:53 by davpasto          #+#    #+#             */
-/*   Updated: 2024/09/17 04:14:29 by davpasto         ###   ########.fr       */
+/*   Updated: 2024/09/17 20:30:51 by davpasto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,16 @@ char	*ft_get_rest(char *full_str)
 
 	int	fd;
 	char	*line;
-
+	
 	fd = open("text.txt", O_RDONLY);
-	while (line = get_next_line(fd))
-	{
+	while (line)
+	{	
+		line = get_next_line(fd);
+		if(!line)
+		{
+			close(fd);
+			return (0);
+		}
 		printf("%s",line);
 		free(line);
 	}
