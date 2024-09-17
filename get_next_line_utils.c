@@ -1,4 +1,16 @@
-# include "get_next_line.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: davpasto <davpasto@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/17 04:16:45 by davpasto          #+#    #+#             */
+/*   Updated: 2024/09/17 04:17:52 by davpasto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -55,4 +67,3 @@ char	*ft_strchr(char	*s, char c)
 		return ((char *)s);
 	return (NULL);
 }
-
